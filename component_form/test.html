@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    <script type="text/javascript" src = "../js/react.development.js"></script>
+    <script type="text/javascript" src = "../js/react-dom.development.js"></script>
+    <script type="text/javascript" src = "../js/babel.min.js"></script>
+    <script type="text/javascript" src = "../js/prop-types.js"></script>
+    <script type="text/babel">
+      class MyForm extends React.Component{
+
+        constructor(props){
+          super(props);
+          this.handleSubmit = this.handleSubmit.bind(this);
+          this.handleChange = this.handleChange.bind(this);
+          this.state = {
+            password:""
+          }
+        }
+
+        handleSubmit(event){
+          const name = this.nameInput.value;
+          const {password} = this.state;
+          alert(`用户名：${name}；密码：${password}`);
+
+          event.preventDefault();
+        }
+
+        handleChange(event){
+          const password = event.target.value;
+          this.setState({password});
+        }
+
+
+        render(){
+          return (
+            <form action="index.html" method="post" onSubmit={this.handleSubmit}>
+              姓名：<input type="text" ref={input=>this.nameInput=input}/>
+              密码：<input type="password" value={this.state.password} onChange={this.handleChange}/>
+              <input type="submit" value="提交" />
+            </form>
+          );
+        }
+      }
+
+      ReactDOM.render(<MyForm/>,document.getElementById("example"));
+
+    </script>
+
+  </body>
+</html>
