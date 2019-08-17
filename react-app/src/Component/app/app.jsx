@@ -11,9 +11,17 @@ class App extends Component{
          comment:'React is pretty good!'
         },
         {name:'Lynn',
-         comment:'React is hard to learn!'}
+         comment:'React is hard to learn!'},
+         {name:'Francis',
+         comment:'Time flys, we need to study very hard!'}
       ]
     }
+  }
+
+  handleComments=(comment)=>{
+    const {comments} = this.state;
+    comments.unshift(comment);
+    this.setState({comments});
   }
 
   render(){
@@ -30,7 +38,7 @@ class App extends Component{
           </div>
         </header>
         <div className="container">
-          <CommentAdd/>
+          <CommentAdd addComments={this.handleComments}/>
           <CommentList comments = {comments} />
 
         </div>
