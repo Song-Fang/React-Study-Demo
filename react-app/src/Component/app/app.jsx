@@ -24,6 +24,12 @@ class App extends Component{
     this.setState({comments});
   }
 
+  deleteComments = (index)=>{
+    const {comments} = this.state;
+    comments.splice(index,1);
+    this.setState({comments});
+  }
+
   render(){
     const {comments} = this.state;
     return(
@@ -39,7 +45,7 @@ class App extends Component{
         </header>
         <div className="container">
           <CommentAdd addComments={this.handleComments}/>
-          <CommentList comments = {comments} />
+          <CommentList comments = {comments} deleteComments={this.deleteComments}/>
 
         </div>
       </div>
