@@ -18,18 +18,18 @@ class App extends Component{
           </div>
         </div>
 
-        <div classNameName="row">
+        <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
               <MyNavLink to="/about" className="list-group-item">About</MyNavLink>
               <MyNavLink to="/home" className="list-group-item">Home</MyNavLink>
             </div>
           </div>
-        </div>
 
-        <div class="col-xs-6">
-          <div class="panel">
-            <div class="panel-body">
+
+        <div className="col-xs-6">
+          <div className="panel">
+            <div className="panel-body">
                 <div>
                   <Switch>
                     <Route path="/about" component={About}/>
@@ -39,6 +39,7 @@ class App extends Component{
                 </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
 
