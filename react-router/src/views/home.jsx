@@ -20,11 +20,11 @@ class Home extends Component{
             </li>
           </ul>
           <div>
-              <Switch>
+          <Switch>
                 <Route path="/home/news" component={News}/>
                 <Route path="/home/messages" component={Messages}/>
-                <Redirect to="/home/news"/>
-              </Switch>
+          </Switch>
+          <Redirect to = "/home/news"/>
           </div>
         </div>
       </div>

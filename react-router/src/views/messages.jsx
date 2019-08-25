@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import MyNavLink from '../components/MyNavLink';
+import {Route} from 'react-router-dom'
+import MessageDetail from './message-detail'
 class Messages extends Component{
   state = {
     messages:[
@@ -19,10 +22,18 @@ class Messages extends Component{
 
   render(){
     return(
+    <div>
       <ul>{
-        this.state.messages.map((message,index)=><li key={index}>{message.title}</li>)
+        this.state.messages.map((message,index)=><li key={index}>
+        <MyNavLink to={`/home/messages/messageContent/${message.id}`} >
+        {message.title}
+        </MyNavLink>
+        </li>
+      )
       }
       </ul>
+      <Route path="/home/messages/messageContent/:id" component={MessageDetail}/>
+    </div>
     );
   }
 }
