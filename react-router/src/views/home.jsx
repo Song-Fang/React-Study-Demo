@@ -13,7 +13,7 @@ class Home extends Component{
         <div>
           <ul className='nav nav-tabs'>
             <li>
-              <MyNavLink to='/home/news/yes'>News</MyNavLink>
+              <MyNavLink to='/home/news'>News</MyNavLink>
             </li>
             <li>
             <MyNavLink to='/home/messages'>Messages</MyNavLink>
@@ -21,10 +21,10 @@ class Home extends Component{
           </ul>
           <div>
           <Switch>
-                <Route path="/home/news/:yes" component={News}/>
+                <Route path="/home/news" component={News}/>
                 <Route path="/home/messages" component={Messages}/>
           </Switch>
-          <Redirect to = "/home/news/yes"/>
+          <Redirect to = "/home/news"/>
           </div>
         </div>
       </div>
