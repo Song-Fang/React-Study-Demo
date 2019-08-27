@@ -10,7 +10,7 @@ class MessageDetail extends Component{
 
   render(){
     const id = this.props.match.params.id;
-    const message = AllMessages.find((m)=>m.id===id*1);
+    const message = AllMessages.find((m)=>m.id ===id*1);
     return(
       <ul>
       <li>ID:{message.id}</li>
