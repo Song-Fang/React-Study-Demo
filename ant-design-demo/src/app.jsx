@@ -1,7 +1,6 @@
 import React from 'react';
 import {Component} from 'react';
 import {Button,Toast} from 'antd-mobile';
-
 class App extends Component {
 
   handleClick=()=>{
