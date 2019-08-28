@@ -1,11 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore} from 'redux';
 import App from './component/app';
-import {counter} from './redux/reducers'
-
-const store = createStore(counter);
-//function counter has been invoked
+import store from './redux/store';
 
 function myRender(){
   render(<App store={store}/>,document.getElementById("root"));

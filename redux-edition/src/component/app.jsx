@@ -1,17 +1,18 @@
 import React from 'react';
 import {Component} from 'react';
-import {INCREMENT,DECREMENT} from '../redux/action-type';
+
+import * as actions from '../redux/actions'
 class App extends Component{
 
   handleAdd = ()=>{
     const number = this.select.value*1;
-    this.props.store.dispatch({type:INCREMENT,data:number});
+    this.props.store.dispatch(actions.increment(number));
 
   }
 
   handleMinus = ()=>{
     const number = this.select.value*1;
-    this.props.store.dispatch({type:DECREMENT,data:number});
+    this.props.store.dispatch(actions.decrement(number));
 
   }
 
@@ -19,7 +20,7 @@ class App extends Component{
     const number = this.select.value*1;
     const count = this.props.store.getState();
     if(count%2!==0){
-      this.props.store.dispatch({type:INCREMENT,data:number});
+      this.props.store.dispatch(actions.increment(number));
     }
 
   }
@@ -27,7 +28,7 @@ class App extends Component{
   handleAsync=()=>{
     setTimeout(()=>{
       const number = this.select.value*1;
-      this.props.store.dispatch({type:INCREMENT,data:number});
+      this.props.store.dispatch(actions.increment(number));
       },
       2000);
   }
