@@ -21,6 +21,26 @@ class App extends Component{
 
   }
 
+  handleOdd = ()=>{
+    const {count} = this.state;
+    const addedNumber = this.select.value*1;
+    if(count%2!==0){
+      const result = count+addedNumber;
+      this.setState({count:result});
+    }
+
+  }
+
+  handleAsync=()=>{
+    setTimeout(()=>{
+      const {count} = this.state;
+      const addedNumber = this.select.value*1;
+      const result = count+addedNumber;
+      this.setState({count:result});
+      },
+      2000);
+  }
+
 
 
   render(){
@@ -36,8 +56,8 @@ class App extends Component{
     </select>
     <button onClick={this.handleAdd} >+</button>
     <button onClick={this.handleMinus}>-</button>
-    <button>increment if odd</button>
-    <button>increment synchronize</button>
+    <button onClick={this.handleOdd}>increment if odd</button>
+    <button onClick={this.handleAsync}>increment Asynchronize</button>
     </div>
   );
   }
