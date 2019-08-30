@@ -1,29 +1,21 @@
 import React,{Component} from 'react';
 import CommentAdd from '../commentAdd/commentAdd';
 import CommentList from '../commentList/commentList'
+import PropTypes from 'prop-types';
+import {handleComments,deleteComments} from '../../redux/actions';
+
 class App extends Component{
-  constructor(props){
-    super(props);
 
-    this.state = {
-      
-    }
+  static propTypes = {
+    comments:PropTypes.array.isRequired;
+    handleComments: PropTypes.func.isRequired;
+    deleteComments: PropTypes.func.isRequired;
   }
 
-  handleComments=(comment)=>{
-    const {comments} = this.state;
-    comments.unshift(comment);
-    this.setState({comments});
-  }
 
-  deleteComments = (index)=>{
-    const {comments} = this.state;
-    comments.splice(index,1);
-    this.setState({comments});
-  }
 
   render(){
-    const {comments} = this.state;
+    const {comments} = this.props;
     return(
       <div>
         <header className="site-header jumbotron">
@@ -36,8 +28,8 @@ class App extends Component{
           </div>
         </header>
         <div className="container">
-          <CommentAdd addComments={this.handleComments}/>
-          <CommentList comments = {comments} deleteComments={this.deleteComments}/>
+          <CommentAdd addComments={this.props.handleComments}/>
+          <CommentList comments = {comments} deleteComments={this.props.deleteComments}/>
 
         </div>
       </div>
@@ -45,4 +37,6 @@ class App extends Component{
   }
 }
 
-export default App;
+export default connect(
+  (state)=>({comments:state},{handleComments,deleteComments})
+)(App);
