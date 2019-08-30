@@ -2,14 +2,15 @@ import React,{Component} from 'react';
 import CommentAdd from '../commentAdd/commentAdd';
 import CommentList from '../commentList/commentList'
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {handleComments,deleteComments} from '../../redux/actions';
 
 class App extends Component{
 
   static propTypes = {
-    comments:PropTypes.array.isRequired;
-    handleComments: PropTypes.func.isRequired;
-    deleteComments: PropTypes.func.isRequired;
+    comments:PropTypes.array.isRequired,
+    handleComments: PropTypes.func.isRequired,
+    deleteComments: PropTypes.func.isRequired
   }
 
 
@@ -38,5 +39,5 @@ class App extends Component{
 }
 
 export default connect(
-  (state)=>({comments:state},{handleComments,deleteComments})
+  state=>({comments:state}),{handleComments,deleteComments}
 )(App);

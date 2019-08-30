@@ -3,6 +3,6 @@ import {applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import comments from './reducers';
 
-const store = createStore(comments,applyMiddlewar(thunk));
+const store = createStore(comments,applyMiddleware(thunk));
 
-export deafult store;
+export default store;
