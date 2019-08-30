@@ -6,15 +6,7 @@ class App extends Component{
     super(props);
 
     this.state = {
-      comments:[
-        {name:'Jackie',
-         comment:'React is pretty good!'
-        },
-        {name:'Lynn',
-         comment:'React is hard to learn!'},
-         {name:'Francis',
-         comment:'Time flys, we need to study very hard!'}
-      ]
+      
     }
   }
 
