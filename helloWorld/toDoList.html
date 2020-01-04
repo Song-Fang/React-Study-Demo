@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    <script type="text/javascript" src = "../js/react.development.js"></script>
+    <script type="text/javascript" src = "../js/react-dom.development.js"></script>
+    <script type="text/javascript" src = "../js/babel.min.js"></script>
+    <script type="text/javascript" src = "../js/prop-types.js"></script>
+    <script type="text/babel">
+      class App extends React.Component{
+        addToDo(todo){
+          const {todos} = this.state;
+          todos.unshift(todo);
+          this.setState({todos});
+        }
+
+          constructor(props){
+            super(props);
+            this.state = {
+              todos:['sleep','eat','play computer games'],
+            }
+            this.addToDo = this.addToDo.bind(this);
+          }
+
+
+
+          render(){
+            return (
+            <div>
+              <h3>Simple To Do List</h3>
+              <Add addToDo={this.addToDo} count = {this.state.todos.length}/>
+              <List  todos={this.state.todos}/>
+            </div>
+            );
+          }
+      }
+
+      class Add extends React.Component{
+
+          handleClick(){
+            const todo = this.input.value.trim();
+            if(!todo){
+              return;
+            }
+            this.props.addToDo(todo);
+          }
+
+          constructor(props){
+            super(props);
+            this.handleClick = this.handleClick.bind(this);
+
+          }
+
+          render(){
+            return(
+            <div>
+              <input type="text" ref = {input=>this.input = input} />
+              <button type="button" name="button" onClick = {this.handleClick}>Add #{this.props.count+1} Times</button>
+            </div>
+            );
+          }
+      }
+
+      class List extends React.Component{
+          constructor(props){
+            super(props);
+          }
+          render(){
+            return(
+            <ul>
+                {
+                  this.props.todos.map((todo,index)=>
+                    <li key={index}>{todo}</li>
+                  )
+                }
+            </ul>
+            );
+          }
+      }
+
+      List.propTypes={
+        todos:PropTypes.array.isRequired
+      }
+
+      Add.propTypes= {
+        addToDo:PropTypes.func.isRequired,
+        count:PropTypes.number.isRequired
+      }
+
+      ReactDOM.render(<App/>,document.getElementById('example'));
+    </script>
+
+  </body>
+</html>
