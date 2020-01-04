@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="example">
+    </div>
+
+
+
+    <script type="text/javascript" src = "../js/react.development.js"></script>
+    <script type="text/javascript" src = "../js/react-dom.development.js"></script>
+    <script type="text/javascript" src = "../js/babel.min.js"></script>
+    <script type="text/javascript" src = "../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+      /*function MyComponent(props){
+        return (
+        <ul>
+          <li>{props.name}</li>
+          <li>{props.gender}</li>
+          <li>{props.age}</li>
+        </ul>
+        );
+      }
+      */
+
+
+
+      class MyComponent extends React.Component{
+        render(){
+          return(
+            <ul>
+              <li>{this.props.name}</li>
+              <li>{this.props.gender}</li>
+              <li>{this.props.age}</li>
+            </ul>
+          );
+        }
+      }
+
+      MyComponent.defaultProps={
+        name:'LiSi',
+        gender:'female',
+        age:22
+      }
+
+      MyComponent.propTypes={
+        name:PropTypes.string.isRequired,
+        gender:PropTypes.string.isRequired,
+        age:PropTypes.number
+      }
+
+
+
+      const person = {
+        name:'ZhangSan',
+        gender:'male',
+        age:15
+      }
+      ReactDOM.render(<MyComponent name={person.name} gender = {person.gender}/>,document.getElementById('example'));
+    </script>
+
+  </body>
+</html>
