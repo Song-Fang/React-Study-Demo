@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+
+    <div id="root2">
+
+    </div>
+
+    <script type="text/javascript" src = "../js/react.development.js"></script>
+    <script type="text/javascript" src = "../js/react-dom.development.js"></script>
+    <script type="text/javascript" src = "../js/babel.min.js"></script>
+    <script type="text/javascript">
+      const myId = "love"
+      const love = 'I love u!';
+      const virtualDom = React.createElement('h2',{id:myId},love);
+      ReactDOM.render(virtualDom,document.getElementById('root'));
+    </script>
+
+
+    <script type="text/babel">
+      const vrDom = <h3 id={myId}>{love.toUpperCase()}</h3>
+      ReactDOM.render(vrDom,document.getElementById('root2'));
+    </script>
+
+  </body>
+</html>
