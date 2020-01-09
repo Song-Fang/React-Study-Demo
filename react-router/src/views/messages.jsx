@@ -37,7 +37,7 @@ class Messages extends Component{
   }
 
   reqPage=()=>{
-    window.location="http://www.google.com"
+    window.location="http://www.google.com";
   }
 
   render(){
