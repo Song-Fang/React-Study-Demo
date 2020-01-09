@@ -10,3 +10,5 @@ class MyNavLink extends Component{
     );
   }
 }
+
+export default MyNavLink;
