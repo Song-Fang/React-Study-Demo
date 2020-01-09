@@ -9,7 +9,7 @@ class Message extends Component{
     messages:[]
   }
 
-  componentDidAmount = {
+  componentDidMount(){
     setTimeout(()=>{
       const messages = [
         {id:1,title:'message001'},

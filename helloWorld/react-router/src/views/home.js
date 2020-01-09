@@ -22,7 +22,7 @@ class Home extends Component{
           <div>
           <Switch>
                 <Route path="/home/news" component={News}/>
-                <Route path="/home/messages" component={Messages}/>
+                <Route path="/home/messages" component={Message}/>
           </Switch>
           <Redirect to = "/home/news"/>
           </div>
