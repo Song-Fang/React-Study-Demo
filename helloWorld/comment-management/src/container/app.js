@@ -1,6 +1,11 @@
 import React from 'react';
 import {Component} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {handleComments,deleteComments,getComments} from '../redux/actions.js';
+import CommentAdd from '../component/addComment.js';
+import CommentList from '../component/commentList.js';
+
 
 
 class App extends Component{
@@ -8,7 +13,12 @@ class App extends Component{
   static propTypes = {
     comments:PropTypes.array.isRequired,
     handleComments: PropTypes.func.isRequired,
-    deleteComments: PropTypes.func.isRequired
+    deleteComments: PropTypes.func.isRequired,
+    getComments:PropTypes.func.isRequired
+  }
+
+  componentDidMount (){
+    this.props.getComments();
   }
 
 
@@ -37,5 +47,5 @@ class App extends Component{
 }
 
 export default connect(
-  state=>({comments:state}),{handleComments,deleteComments}
+  state=>({comments:state.comments}),{handleComments,deleteComments,getComments}
 )(App);

@@ -1,17 +1,20 @@
-import {ADD_COMMENT,DELETE_COMMENT} from './action-types.js';
+import {ADD_COMMENT,DELETE_COMMENT,RECEIVE_COMMENTS} from './action-types.js';
+import {combineReducers} from 'redux';
 
-export const initComments = [{name:'ZhangSan',comment:'I love Lynn'},{name:'Lynn',comment:'I love Francis'}];
-export function comments(state=initComments,action){
+const initComments = [];
+function comments(state=initComments,action){
   switch(action.type){
     case ADD_COMMENT:
       return [action.data,...state];
-      //state.unshift(action.data);
-      //return state;
-    case DELETE_COMMENT:
-      //state.splice(action.data);
-      //return state;
-      return state.filter((comment,index)=>index!==action.data));
-    default:
 
+    case DELETE_COMMENT:
+      return state.filter((comment,index)=>index!==action.data);
+
+    case RECEIVE_COMMENTS:
+      return action.data;
+    default:
+      return state;
   }
 }
+
+export default combineReducers({comments});
